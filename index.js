@@ -1,12 +1,8 @@
 #!/usr/bin/env node
 (function(){
-    const {argv} = require('optimist');
-    const Parameters = require('./parameters.model');
     const {parseFolderStructure} = require('./tree-parser.service');
-    const {drawTree} = require('./tree-drawer.service'); 
-
-    let parameters = new Parameters();
-    parameters.path = argv.path || null;
+    const {drawTree} = require('./tree-drawer.service');
+    const {parameters} = require('./cli.service');
 
     /**
     *   Creates a Tree from a path of a folder

@@ -3,6 +3,7 @@
     const {isEmptyString} = require('./utils.service');
     const {Tree, Node} = require('./tree.model');
     const path = require('path');
+    const logger = require('./logging.service');
 
     const separator = process.platform == 'win32' ? '\\' : '/';
 
@@ -45,8 +46,8 @@
                         parent = _serachParentByLabel(currentNode, parentLabel);
                     }
                     catch(e){
-                        console.log(`Unable to fine node ${parentLabel} in tree.`)
-                        console.log(`Due to: ${e}`)
+                        logger.info(`Unable to fine node ${parentLabel} in tree.`)
+                        logger.debug(`Due to: ${e}`)
                         return;
                     }
                     
@@ -64,7 +65,7 @@
             return tree;
         }
         else{
-            console.log('Missing --path param')
+            logger.error('Missing --path param')
             process.exit(0);
         }
     }

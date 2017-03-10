@@ -4,6 +4,8 @@
   "description": "Creates tree representation of given folder(s)",
   "main": "index.js",
   "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
     "fs-walk": "^0.0.1",
     "klaw-sync": "^1.1.2",
     "optimist": "^0.6.1"
