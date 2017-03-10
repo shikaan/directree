@@ -1,0 +1,15 @@
+{
+    "version": "0.10.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/index.js",
+            "args": [
+                "--path",
+                "./"
+            ]
+        }
+    ]
+}

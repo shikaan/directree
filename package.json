@@ -1,0 +1,20 @@
+{
+  "name": "folder2tree",
+  "version": "0.0.1",
+  "description": "Creates tree representation of given folder(s)",
+  "main": "index.js",
+  "dependencies": {
+    "fs-walk": "^0.0.1",
+    "klaw-sync": "^1.1.2",
+    "optimist": "^0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "folder2tree": "./index.js"
+  }
+}
