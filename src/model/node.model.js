@@ -1,23 +1,4 @@
 (function(){
-    class Tree {
-        constructor() {
-            this._root = null;
-        }
-
-        set root(node){
-            if(node instanceof Node){
-                this._root = node;
-            }
-            else{
-                throw 'Invalid Node'
-            }
-        }
-
-        get root(){
-            return this._root;
-        }
-    }
-
     class Node{
         constructor(label, parent){
             this.label = label;
@@ -40,5 +21,5 @@
         }
     }
 
-    module.exports = {Tree, Node};
-})()
+    module.exports = {Node}
+})();

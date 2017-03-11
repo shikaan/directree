@@ -1,21 +1,21 @@
-#!/usr/bin/env node
 (function(){
-    const {parseFolderStructure} = require('./tree-parser.service');
-    const {drawTree} = require('./tree-drawer.service');
-    const {parameters} = require('./cli.service');
+    const {parseFolderStructure} = require('./src/service/tree-parser.service');
+    const {drawTree} = require('./src/service/tree-drawer.service');
 
-    /**
-    *   Creates a Tree from a path of a folder
-    */
-    let tree = parseFolderStructure(parameters);
+    module.exports = function(parameters){
+        /**
+        *   Creates a Tree from a path of a folder
+        */
+        let tree = parseFolderStructure(parameters);
 
-    /**
-    *   Draws the tree
-    */
-    let result = drawTree(tree);
+        /**
+        *   Draws the tree
+        */
+        let result = drawTree(tree);
 
-    /**
-    *   Prints output to the console
-    */
-    console.log(result);
-})(); 
+        /**
+        *   Prints output to the console
+        */
+        console.log(result);
+    }
+})() 

@@ -1,9 +1,10 @@
 (function() {
-    const {Tree, Node} = require('./tree.model')
+    const {Tree} = require('../model/tree.model');
+    const {Node} = require('../model/node.model');
     const {isLastInList} = require('./utils.service');
     
-    const SYMBOLS = ['┬', '─ ', '└─', '├─', '│'];
-    const nestingPrefix = `${SYMBOLS[4]}   `;
+    const SYMBOLS = ['─ ', '└─', '├─', '│'];
+    const nestingPrefix = `${SYMBOLS[3]}   `;
     const spacing = '    ';
     
     let outputStream = ''; 
@@ -26,14 +27,14 @@
                     /**
                     *   Uses "elbow" symbol if last node
                     */
-                    let symbol = isLastNode ? SYMBOLS[2] : SYMBOLS[3];
+                    let symbol = isLastNode ? SYMBOLS[1] : SYMBOLS[2];
 
                     /**
                     *   Prevent last node's children to have a useless nestingPrefix 
                     */
                     let childPrefix = isLastNode ? prefix + spacing : prefix + nestingPrefix;
 
-                    outputStream = [outputStream, prefix, symbol, SYMBOLS[1], childNode.label, '\n'].join('');
+                    outputStream = [outputStream, prefix, symbol, SYMBOLS[0], childNode.label, '\n'].join('');
                     _drawTreeFromRoot(childNode, childPrefix);
                 })
             }

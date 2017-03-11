@@ -1,7 +1,8 @@
 (function(){
     const walkSync = require('klaw-sync');
     const {isEmptyString} = require('./utils.service');
-    const {Tree, Node} = require('./tree.model');
+    const {Tree} = require('../model/tree.model');
+    const {Node} = require('../model/node.model');
     const path = require('path');
     const logger = require('./logging.service');
 

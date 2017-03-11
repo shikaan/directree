@@ -1,7 +1,7 @@
 (function(){
     "use strict";
     const colors = require('colors');
-    const {parameters} = require('./cli.service');
+    const Parameters = require('../model/parameters.model')
 
     let LOG_LEVELS = {
         DEBUG: 0,
@@ -10,7 +10,14 @@
         ERROR: 3
     }
 
-    let logLevel = parameters.logLevel;
+    let logLevel;
+
+    function setLogLevel(parameters){
+        if(parameters instanceof Parameters)
+            logLevel = parameters.logLevel;
+        else
+            logLevel = 3;
+    }
 
     function debug(){
         if(logLevel === LOG_LEVELS.DEBUG)
@@ -41,6 +48,7 @@
         info: info,
         error: error,
         warning: warning,
-        debug: debug
+        debug: debug,
+        setLogLevel: setLogLevel
     }
 })()

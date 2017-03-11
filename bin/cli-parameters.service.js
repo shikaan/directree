@@ -1,6 +1,6 @@
 (function(){
-    const version = require('./package.json').version;
-    const Parameters = require('./parameters.model');
+    const version = require('../package.json').version;
+    const Parameters = require('../src/model/parameters.model');
     const program = require('commander');
 
     program

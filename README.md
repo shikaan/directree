@@ -8,8 +8,10 @@ representation of your project to your documentation.
 - add tests;
 - ignore files and/or folder with a parameter;
 - add capability to print on file;
+- add programmatic usage;
 
 ## Installation ##
+
 Run 
 
 ```
@@ -19,17 +21,47 @@ Run
 ## Usage ##
 It takes the following parameters:
 
-- path
+- `path`
+- `show-files`
+- `log-level`
 
 ### Path ###
 
-It's the path of the folder you want to show as a tree.
+It's the path of the folder you want to show as a tree. It's required.
 
 #### Example ####
 
 ```
-folder2tree --path ./
+    folder2tree --path ./
 ```
+
+### Show Files ###
+
+Add this flag if you want to show files in the tree.
+
+#### Example ####
+
+```
+    folder2tree --path ./ -f
+```
+```
+    folder2tree --path ./ --show-files
+```
+
+### Logging level ###
+
+If there's something going wrong in the drawing, you can go to a deeper level of logging.
+The default level is `3` (only errors), the deepest and most verbose level of logging is `0`.
+
+#### Example ####
+
+```
+    folder2tree --path ./ -f  -l 0
+```
+```
+    folder2tree --path ./ --log-level 2
+```
+
 
 ## Programmatic usage ##
 
