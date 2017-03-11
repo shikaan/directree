@@ -31,6 +31,9 @@ It's the path of the folder you want to show as a tree. It's required.
 #### Example ####
 
 ```
+    folder2tree -p ./
+```
+```
     folder2tree --path ./
 ```
 
