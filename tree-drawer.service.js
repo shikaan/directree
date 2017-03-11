@@ -31,7 +31,7 @@
                     /**
                     *   Prevent last node's children to have a useless nestingPrefix 
                     */
-                    let childPrefix = !prefix && !isLastNode ? nestingPrefix : prefix + spacing;
+                    let childPrefix = isLastNode ? prefix + spacing : prefix + nestingPrefix;
 
                     outputStream = [outputStream, prefix, symbol, SYMBOLS[1], childNode.label, '\n'].join('');
                     _drawTreeFromRoot(childNode, childPrefix);

@@ -22,6 +22,7 @@
         constructor(label, parent){
             this.label = label;
             this.parent = parent;
+            this.isLast = false;
             this._children = [];
         }
         

@@ -5,10 +5,7 @@ representation of your project to your documentation.
 
 ## To-dos
 
-- logging service;
-- decide wether showing files or not with a parameter;
 - add tests;
-- fix tree drawing of descendant of last children;
 - ignore files and/or folder with a parameter;
 - add capability to print on file;
 

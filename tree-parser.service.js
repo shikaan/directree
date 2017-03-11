@@ -21,7 +21,7 @@
 
     function parseFolderStructure(parameters){
         let folderPath = parameters.path;
-        let showFiles = parameters.files;
+        let showFiles = parameters.showFiles;
         
         if(folderPath){
             let tree = new Tree();
