@@ -28,7 +28,7 @@
                 node.children.forEach((childNode, index) => {
                     let isLastNode = isLastInList(index, node.children);
                     /**
-                    *   Uses "elbow" symbol if last node
+                    *   Uses "elbow" symbol if last node, the "T" one otherwise
                     */
                     let symbol = isLastNode ? SYMBOLS[1] : SYMBOLS[2];
 
