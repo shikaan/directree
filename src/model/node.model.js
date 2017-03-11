@@ -2,15 +2,19 @@
 
 (function(){
     class Node{
-        constructor(label, parent){
+        constructor(label){
             this.label = label;
-            this.parent = parent;
+            this.parent = null;
             this.isLast = false;
             this._children = [];
         }
         
+        /**
+         * @param {Node} node 
+         */
         addChild(node){
             if(node instanceof Node){
+                node.parent = this;
                 this._children.push(node)
             }
             else{

@@ -49,11 +49,11 @@
                         return;
                     }
                     
-                    leaf = new Node(nodeName, parent);
+                    leaf = new Node(nodeName);
                     parent.addChild(leaf);
                 }
                 else{
-                    leaf = new Node(nodeName, tree.root);
+                    leaf = new Node(nodeName);
                     tree.root.addChild(leaf);
                 }
 
