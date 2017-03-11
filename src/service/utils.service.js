@@ -1,3 +1,5 @@
+"use strict";
+
 (function() {
     function isEmptyString(value){
         if(!(value instanceof Object)){
@@ -22,4 +24,4 @@
     }
 
     module.exports = {isEmptyString, isLastInList};
-})();
+}());

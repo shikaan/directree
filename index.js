@@ -1,21 +1,23 @@
-(function(){
+(function () {
+    "use strict";
+        
     const {parseFolderStructure} = require('./src/service/tree-parser.service');
     const {drawTree} = require('./src/service/tree-drawer.service');
 
-    module.exports = function(parameters){
+    module.exports = function (parameters) {
         /**
         *   Creates a Tree from a path of a folder
         */
-        let tree = parseFolderStructure(parameters);
+        const tree = parseFolderStructure(parameters);
 
         /**
         *   Draws the tree
         */
-        let result = drawTree(tree);
+        const result = drawTree(tree);
 
         /**
         *   Prints output to the console
         */
         console.log(result);
-    }
-})() 
+    };
+}());

@@ -1,7 +1,10 @@
+"use strict";
+
 (function() {
     const {Tree} = require('../model/tree.model');
     const {Node} = require('../model/node.model');
     const {isLastInList} = require('./utils.service');
+    const logger = require('./logging.service')
     
     const SYMBOLS = ['─ ', '└─', '├─', '│'];
     const nestingPrefix = `${SYMBOLS[3]}   `;
@@ -18,7 +21,7 @@
         /**
         * Sanitize prefix
         */
-        prefix = !!prefix ? String(prefix) : '';
+        prefix = prefix ? String(prefix) : '';
         
         if(node instanceof Node){
             if(node.children.length > 0){
@@ -43,7 +46,7 @@
             */
         }
         else{
-            console.log('Invalid root of the tree');
+            logger.error('Invalid root of the tree');
             return;
         }
     }
@@ -55,11 +58,11 @@
             return outputStream;
         }
         else{
-            console.log('Unable to parse the tree')
+            logger.error('Unable to parse the tree')
         }
     }
 
     module.exports = {
         drawTree
     }
-})()
+}())

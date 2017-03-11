@@ -1,3 +1,5 @@
+"use strict";
+
 (function(){
     class Parameters{
         constructor(){
@@ -7,4 +9,4 @@
     }
 
     module.exports = Parameters
-})();
+}());

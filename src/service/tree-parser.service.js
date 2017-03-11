@@ -1,3 +1,6 @@
+/*  global process  */
+"use strict";
+
 (function(){
     const walkSync = require('klaw-sync');
     const {isEmptyString} = require('./utils.service');
@@ -5,12 +8,6 @@
     const {Node} = require('../model/node.model');
     const path = require('path');
     const logger = require('./logging.service');
-
-    const separator = process.platform == 'win32' ? '\\' : '/';
-
-    function isNotEmptyString(value){
-        return !isEmptyString(value);
-    }
 
     function _serachParentByLabel(node, label){
         let parent = node.parent.children.find((node) => node.label === label);
@@ -72,4 +69,4 @@
     }
 
     module.exports = {parseFolderStructure}
-})()
+}())

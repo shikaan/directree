@@ -1,3 +1,5 @@
+"use strict";
+
 (function(){
     const {Node} = require('./node.model');
      
@@ -21,4 +23,4 @@
     }
 
     module.exports = {Tree};
-})()
+}())

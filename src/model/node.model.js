@@ -1,3 +1,5 @@
+"use strict";
+
 (function(){
     class Node{
         constructor(label, parent){
@@ -22,4 +24,4 @@
     }
 
     module.exports = {Node}
-})();
+}());

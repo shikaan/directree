@@ -1,4 +1,9 @@
+/*  global process  */
+/*  eslint dot-location: "off"  */
+
 (function(){
+    "use strict";
+
     const version = require('../package.json').version;
     const Parameters = require('../src/model/parameters.model');
     const program = require('commander');
@@ -16,4 +21,4 @@
     parameters.logLevel = program.logLevel || 3;
 
     module.exports = {parameters};
-})()
+}())

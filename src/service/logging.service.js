@@ -1,5 +1,7 @@
+/*  eslint no-console: "off"  */
+"use strict";
+
 (function(){
-    "use strict";
     const colors = require('colors');
     const Parameters = require('../model/parameters.model')
 
@@ -51,4 +53,4 @@
         debug: debug,
         setLogLevel: setLogLevel
     }
-})()
+}())

@@ -8,7 +8,6 @@ representation of your project to your documentation.
 - add tests;
 - ignore files and/or folder with a parameter;
 - add capability to print on file;
-- add programmatic usage;
 
 ## Installation ##
 
@@ -65,13 +64,26 @@ The default level is `3` (only errors), the deepest and most verbose level of lo
 
 ## Programmatic usage ##
 
-(TBD)
+You can use this utility in your Node.js apps too. You only need to provide the same parameters
+as before, but in a _camelCase_ way.
 
-You can use this utility in your Node.js apps too:
+Thus the parameters object looks like:
+
+    {
+        path: {string},
+        showFiles: {boolean},
+        logLevel: {number}
+    }
 
 #### Example ####
 
 ```
-const folder2tree = require('folder2tree');
+    const folder2tree = require('folder2tree');
+
+    folder2tree({
+        path: './',
+        shoFiles: true,
+        logLevel: 3
+    })
 
 ``` 
