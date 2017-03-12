@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "nyc --reporter=html mocha 'src/**/*.spec.js'",
-    "lint": "node_modules/.bin/eslint src"
+    "lint": "eslint src"
   },
   "author": "Manuel Spagnolo <spagnolo.manu@gmail.com>",
   "license": "ISC",
