@@ -1,7 +1,7 @@
 /*  global process  */
 /*  eslint dot-location: "off"  */
 
-(function(){
+(function () {
     "use strict";
 
     const version = require('../package.json').version;
@@ -20,5 +20,5 @@
     parameters.showFiles = program.showFiles || false;
     parameters.logLevel = program.logLevel || 3;
 
-    module.exports = {parameters};
+    module.exports = { parameters };
 }())

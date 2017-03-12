@@ -1,10 +1,10 @@
 "use strict";
 
-(function(){
-    const {expect} = require('chai');
+(function () {
+    const { expect } = require('chai');
     const service = require('./tree-drawer.service');
-    const {Tree} = require('../model/tree.model');
-    const {Node} = require('../model/node.model');
+    const { Tree } = require('../model/tree.model');
+    const { Node } = require('../model/node.model');
 
     describe('Service: TreeDrawer', () => {
         it('should be defined', () => {

@@ -1,8 +1,8 @@
 "use strict";
 
-(function() {
-    function isEmptyString(value){
-        if(!(value instanceof Object)){
+(function () {
+    function isEmptyString(value) {
+        if (!(value instanceof Object)) {
             value = value ? String(value) : '';
             return value === '';
         }
@@ -10,19 +10,19 @@
             return false
     }
 
-    function isLastInList(index, list){
+    function isLastInList(index, list) {
         index = parseInt(index);
-        let length = (function(){
-            if(list && list instanceof Array && list.length)
+        let length = (function () {
+            if (list && list instanceof Array && list.length)
                 return parseInt(list.length);
             return NaN
         }())
 
-        if(!isNaN(index) && !isNaN(length))
-            return index === length - 1 
+        if (!isNaN(index) && !isNaN(length))
+            return index === length - 1
         else
-            throw `Invalid entries: ${index} ${list}` 
+            throw `Invalid entries: ${index} ${list}`
     }
 
-    module.exports = {isEmptyString, isLastInList};
+    module.exports = { isEmptyString, isLastInList };
 }());

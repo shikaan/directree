@@ -1,31 +1,31 @@
 "use strict";
 
-(function(){
-    class Node{
-        constructor(label){
+(function () {
+    class Node {
+        constructor(label) {
             this.label = label;
             this.parent = null;
             this.isLast = false;
             this._children = [];
         }
-        
+
         /**
          * @param {Node} node 
          */
-        addChild(node){
-            if(node instanceof Node){
+        addChild(node) {
+            if (node instanceof Node) {
                 node.parent = this;
                 this._children.push(node)
             }
-            else{
+            else {
                 throw 'Invalid Node'
             }
         }
 
-        get children(){
+        get children() {
             return this._children;
         }
     }
 
-    module.exports = {Node}
+    module.exports = { Node }
 }());

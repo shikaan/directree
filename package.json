@@ -11,10 +11,11 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.17.1",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-import": "^2.2.0",
+    "nyc": "^10.1.2"
   },
   "scripts": {
-    "test": "NODE_ENV=test mocha 'src/**/*.spec.js'",
+    "test": "nyc --reporter=html mocha 'src/**/*.spec.js'",
     "lint": "node_modules/.bin/eslint src"
   },
   "author": "Manuel Spagnolo <spagnolo.manu@gmail.com>",

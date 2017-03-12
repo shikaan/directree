@@ -1,30 +1,29 @@
 "use strict";
 
-(function() {
-    const {Tree} = require('../model/tree.model');
-    const {Node} = require('../model/node.model');
-    const {isLastInList} = require('./utils.service');
+(function () {
+    const { Tree } = require('../model/tree.model');
+    const { Node } = require('../model/node.model');
+    const { isLastInList } = require('./utils.service');
     const logger = require('./logging.service')
-    
+
     const SYMBOLS = ['─ ', '└─', '├─', '│'];
     const nestingPrefix = `${SYMBOLS[3]}   `;
     const spacing = '    ';
-    
-    let outputStream = ''; 
+
+    let outputStream = '';
 
     /**
-    *   @param node {Node} - Root of the tree;
-    *   @param result {String} - Where you store partial tree drawing
-    *   @param prefix {String} - OPTIONAL What should be used as prefix in nested levels
+    *   @param {Node} node - Root of the tree;
+    *   @param {String} prefix - OPTIONAL What should be used as prefix in nested levels
     */
-    function _drawTreeFromRoot(node, prefix){
+    function _drawTreeFromRoot(node, prefix) {
         /**
         * Sanitize prefix
         */
         prefix = prefix ? String(prefix) : '';
-        
-        if(node instanceof Node){
-            if(node.children.length > 0){
+
+        if (node instanceof Node) {
+            if (node.children.length > 0) {
                 node.children.forEach((childNode, index) => {
                     let isLastNode = isLastInList(index, node.children);
                     /**
@@ -45,19 +44,22 @@
             *   Recursion exit condition: node.children.length === 0
             */
         }
-        else{
+        else {
             logger.error('Invalid root of the tree');
             return;
         }
     }
 
-    function drawTree(tree){
-        if(tree instanceof Tree){
+    /**
+     * @param {Tree} tree - The tree you want to draw
+     */
+    function drawTree(tree) {
+        if (tree instanceof Tree) {
             outputStream = `${tree.root.label}\n`
             _drawTreeFromRoot(tree.root, null);
             return outputStream;
         }
-        else{
+        else {
             logger.error('Unable to parse the tree')
         }
     }

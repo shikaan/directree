@@ -1,26 +1,26 @@
 "use strict";
 
-(function(){
-    const {Node} = require('./node.model');
-     
+(function () {
+    const { Node } = require('./node.model');
+
     class Tree {
         constructor() {
             this._root = null;
         }
 
-        set root(node){
-            if(node instanceof Node){
+        set root(node) {
+            if (node instanceof Node) {
                 this._root = node;
             }
-            else{
+            else {
                 throw 'Invalid Node'
             }
         }
 
-        get root(){
+        get root() {
             return this._root;
         }
     }
 
-    module.exports = {Tree};
+    module.exports = { Tree };
 }())

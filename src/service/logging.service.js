@@ -1,7 +1,7 @@
 /*  eslint no-console: "off"  */
 "use strict";
 
-(function(){
+(function () {
     const colors = require('colors');
     const Parameters = require('../model/parameters.model')
 
@@ -14,33 +14,33 @@
 
     let logLevel;
 
-    function setLogLevel(parameters){
-        if(parameters instanceof Parameters)
+    function setLogLevel(parameters) {
+        if (parameters instanceof Parameters)
             logLevel = parameters.logLevel;
         else
             logLevel = 3;
     }
 
-    function debug(){
-        if(logLevel === LOG_LEVELS.DEBUG)
+    function debug() {
+        if (logLevel === LOG_LEVELS.DEBUG)
             console.log(colors.grey.apply(this, arguments))
-    } 
+    }
 
-    function info(){
-        if(logLevel <= LOG_LEVELS.INFO){
+    function info() {
+        if (logLevel <= LOG_LEVELS.INFO) {
             console.log(colors.blue.apply(this, arguments));
         }
     }
 
-    function error(){
-        if(logLevel <= LOG_LEVELS.ERROR){
+    function error() {
+        if (logLevel <= LOG_LEVELS.ERROR) {
             console.log('--- ERROR ---'.bgRed.white.bold);
             console.log(colors.red.apply(this, arguments));
         }
     }
 
-    function warning(){
-        if(logLevel <= LOG_LEVELS.WARNING){
+    function warning() {
+        if (logLevel <= LOG_LEVELS.WARNING) {
             console.log('--- WARNING ---'.bgYellow.white.bold);
             console.log(colors.yellow.apply(this, arguments));
         }

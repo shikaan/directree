@@ -1,8 +1,8 @@
 "use strict";
 
-(function(){
-    const {expect} = require('chai');
-    const service = require('./utils.service'); 
+(function () {
+    const { expect } = require('chai');
+    const service = require('./utils.service');
 
     describe('Service: Logging', () => {
         it('should be defined', () => {
@@ -72,7 +72,7 @@
                 }).to.throw();
 
                 expect(() => {
-                    service.isLastInList(1, {length: 12});
+                    service.isLastInList(1, { length: 12 });
                 }).to.throw();
 
                 expect(() => {

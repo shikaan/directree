@@ -5,9 +5,8 @@ representation of your project to your documentation.
 
 ## To-dos
 
-- add tests;
 - ignore files and/or folder with a parameter;
-- add capability to print on file;
+- add capability to redirect output(print on file, print on console, return result as string);
 
 ## Installation ##
 
@@ -85,7 +84,7 @@ Thus the parameters object looks like:
 
     folder2tree({
         path: './',
-        shoFiles: true,
+        showFiles: true,
         logLevel: 3
     })
 
