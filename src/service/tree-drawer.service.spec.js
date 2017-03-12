@@ -2,7 +2,9 @@
 
 (function () {
     const { expect } = require('chai');
+    const sinon = require('sinon');
     const service = require('./tree-drawer.service');
+    const logger = require('./logging.service');
     const { Tree } = require('../model/tree.model');
     const { Node } = require('../model/node.model');
 
@@ -14,6 +16,14 @@
         describe('Method: drawTree', () => {
             it('should be defined', () => {
                 expect(!!service.drawTree).to.equal(true);
+            })
+
+            it('should call logger error in case of nonTree parameter', () => {
+                let loggerSpy = sinon.stub(logger, 'error', () => null);
+                service.drawTree('asd');
+
+                expect(loggerSpy.called).to.equal(true);
+                loggerSpy.restore();
             })
 
             it('zero depth tree', () => {

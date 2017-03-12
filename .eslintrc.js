@@ -214,7 +214,7 @@ module.exports = {
         "object-curly-newline": "off",
         "object-curly-spacing": [
             "error",
-            "never"
+            "always"
         ],
         "object-property-newline": [
             "error",

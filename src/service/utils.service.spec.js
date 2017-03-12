@@ -4,7 +4,7 @@
     const { expect } = require('chai');
     const service = require('./utils.service');
 
-    describe('Service: Logging', () => {
+    describe('Service: Utils', () => {
         it('should be defined', () => {
             expect(!!service).to.equal(true);
         });
@@ -28,6 +28,10 @@
 
             it('should return false in case of number sequence', () => {
                 expect(service.isEmptyString(1234)).to.equal(false);
+            })
+
+            it('should return false in case of object', () => {
+                expect(service.isEmptyString({ a: 1234 })).to.equal(false);
             })
         });
 

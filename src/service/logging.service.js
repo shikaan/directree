@@ -3,7 +3,6 @@
 
 (function () {
     const colors = require('colors');
-    const Parameters = require('../model/parameters.model')
 
     let LOG_LEVELS = {
         DEBUG: 0,
@@ -14,11 +13,12 @@
 
     let logLevel;
 
+    /**
+     * @param {Parameters|Object} parameters 
+     */
     function setLogLevel(parameters) {
-        if (parameters instanceof Parameters)
-            logLevel = parameters.logLevel;
-        else
-            logLevel = 3;
+        let level = parseInt(parameters.logLevel)
+        logLevel = !isNaN(level) && level > -1 && level < 4 ? level : 3;
     }
 
     function debug() {

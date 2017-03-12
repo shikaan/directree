@@ -2,7 +2,6 @@
 
 (function () {
     const { Tree } = require('../model/tree.model');
-    const { Node } = require('../model/node.model');
     const { isLastInList } = require('./utils.service');
     const logger = require('./logging.service')
 
@@ -22,32 +21,26 @@
         */
         prefix = prefix ? String(prefix) : '';
 
-        if (node instanceof Node) {
-            if (node.children.length > 0) {
-                node.children.forEach((childNode, index) => {
-                    let isLastNode = isLastInList(index, node.children);
-                    /**
-                    *   Uses "elbow" symbol if last node, the "T" one otherwise
-                    */
-                    let symbol = isLastNode ? SYMBOLS[1] : SYMBOLS[2];
+        if (node.children.length > 0) {
+            node.children.forEach((childNode, index) => {
+                let isLastNode = isLastInList(index, node.children);
+                /**
+                *   Uses "elbow" symbol if last node, the "T" one otherwise
+                */
+                let symbol = isLastNode ? SYMBOLS[1] : SYMBOLS[2];
 
-                    /**
-                    *   Prevent last node's children to have a useless nestingPrefix 
-                    */
-                    let childPrefix = isLastNode ? prefix + spacing : prefix + nestingPrefix;
+                /**
+                *   Prevent last node's children to have a useless nestingPrefix 
+                */
+                let childPrefix = isLastNode ? prefix + spacing : prefix + nestingPrefix;
 
-                    outputStream = [outputStream, prefix, symbol, SYMBOLS[0], childNode.label, '\n'].join('');
-                    _drawTreeFromRoot(childNode, childPrefix);
-                })
-            }
-            /**
-            *   Recursion exit condition: node.children.length === 0
-            */
+                outputStream = [outputStream, prefix, symbol, SYMBOLS[0], childNode.label, '\n'].join('');
+                _drawTreeFromRoot(childNode, childPrefix);
+            })
         }
-        else {
-            logger.error('Invalid root of the tree');
-            return;
-        }
+        /**
+        *   Recursion exit condition: node.children.length === 0
+        */
     }
 
     /**

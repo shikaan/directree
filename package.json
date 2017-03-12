@@ -12,7 +12,9 @@
     "chai": "^3.5.0",
     "eslint": "^3.17.1",
     "eslint-plugin-import": "^2.2.0",
-    "nyc": "^10.1.2"
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
+    "sinon": "^1.17.7"
   },
   "scripts": {
     "test": "nyc --reporter=html mocha 'src/**/*.spec.js'",
