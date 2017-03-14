@@ -1,5 +1,6 @@
 # directree #
 [![Build Status](https://travis-ci.org/shikaan/directree.svg?branch=master)](https://travis-ci.org/shikaan/directree)
+[![Coverage Status](https://coveralls.io/repos/github/shikaan/directree/badge.svg?branch=master)](https://coveralls.io/github/shikaan/directree?branch=master)
 
 Creates a tree representation of any directory. Handy if you want to add a tree 
 representation of your project to your documentation.
