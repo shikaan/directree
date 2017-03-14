@@ -1,4 +1,5 @@
 # directree #
+[![Build Status](https://travis-ci.org/shikaan/directree.svg?branch=master)](https://travis-ci.org/shikaan/directree)
 
 Creates a tree representation of any directory. Handy if you want to add a tree 
 representation of your project to your documentation.
