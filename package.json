@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.12.0",
     "eslint": "^3.17.1",
     "eslint-plugin-import": "^2.2.0",
     "mocha": "^3.2.0",
@@ -18,7 +19,9 @@
     "sinon": "^1.17.7"
   },
   "scripts": {
-    "test": "nyc --reporter=html mocha 'src/**/*.spec.js'",
+    "test": "mocha 'src/**/*.spec.js'",
+    "test-html": "nyc --reporter=html mocha 'src/**/*.spec.js'",
+    "test-ci": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint src"
   },
   "author": "Manuel Spagnolo <spagnolo.manu@gmail.com>",
