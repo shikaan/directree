@@ -5,10 +5,12 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/index.js",
+            "program": "${workspaceRoot}/bin/index.js",
             "args": [
                 "--path",
-                "./testing"
+                ".",
+                "-i",
+                ".git/**/*"
             ]
         }
     ]

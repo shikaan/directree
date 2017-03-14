@@ -3,10 +3,11 @@
 
 (function () {
     const walkSync = require('klaw-sync');
-    const { isEmptyString } = require('./utils.service');
+    const path = require('path');
+    const minimatch = require('minimatch');
     const { Tree } = require('../model/tree.model');
     const { Node } = require('../model/node.model');
-    const path = require('path');
+    const { isEmptyString } = require('./utils.service');
     const logger = require('./logging.service');
 
     function _serachParentByLabel(node, label) {
@@ -23,8 +24,12 @@
     function parseFolderStructure(parameters) {
         let folderPath = parameters.path;
         let showFiles = parameters.showFiles;
+        let ignorePattern = parameters.ignorePattern;
 
         if (folderPath) {
+            //  Sanitize folderPath
+            folderPath = path.resolve(folderPath);
+
             let tree = new Tree();
             tree.root = (new Node(path.basename(folderPath)));
             let currentNode = null;
@@ -32,6 +37,11 @@
             let options = { nodir: false, nofile: !showFiles };
 
             walkSync(folderPath, options).forEach((item) => {
+                let relativePath = path.relative(folderPath, item.path);
+
+                if (minimatch(relativePath, ignorePattern))
+                    return;
+
                 let parentAbsPath = path.dirname(item.path);
 
                 //  Parent path relative to folderPath

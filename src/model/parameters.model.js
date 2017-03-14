@@ -6,6 +6,7 @@
             this.path = null;
             this.showFiles = false;
             this.logLevel = 3;
+            this.ignorePattern = null;
         }
     }
 

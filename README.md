@@ -1,19 +1,18 @@
-# folder2tree #
+# directree #
 
-Creates a tree representation of any project (actually of any folder). Handy if you want to add a tree 
+Creates a tree representation of any directory. Handy if you want to add a tree 
 representation of your project to your documentation.
 
 ## To-dos
 
-- ignore files and/or folder with a parameter;
-- add capability to redirect output(print on file, print on console, return result as string);
+- Add capability to redirect output(print on file, print on console, return result as string);
 
 ## Installation ##
 
 Run 
 
 ```
-    npm install folder2tree -g
+    npm install directree -g
 ```
 
 ## Usage ##
@@ -22,6 +21,7 @@ It takes the following parameters:
 - `path`
 - `show-files`
 - `log-level`
+- `ignore-pattern`
 
 ### Path ###
 
@@ -30,10 +30,10 @@ It's the path of the folder you want to show as a tree. It's required.
 #### Example ####
 
 ```
-    folder2tree -p ./
+    directree -p ./
 ```
 ```
-    folder2tree --path ./
+    directree --path ./
 ```
 
 ### Show Files ###
@@ -43,10 +43,10 @@ Add this flag if you want to show files in the tree.
 #### Example ####
 
 ```
-    folder2tree --path ./ -f
+    directree --path ./ -f
 ```
 ```
-    folder2tree --path ./ --show-files
+    directree --path ./ --show-files
 ```
 
 ### Logging level ###
@@ -57,12 +57,25 @@ The default level is `3` (only errors), the deepest and most verbose level of lo
 #### Example ####
 
 ```
-    folder2tree --path ./ -f  -l 0
+    directree --path ./ -f  -l 0
 ```
 ```
-    folder2tree --path ./ --log-level 2
+    directree --path ./ --log-level 2
 ```
 
+### Ignore pattern ###
+
+You can hide some results in the tree by using the `ignore-patttern` argument. 
+It runs `minimatch` under the hood, thus it takes a glob as argument.
+
+#### Example ####
+
+```
+    directree --path . -f  -i node_modules
+```
+```
+    directree --path . --ignore-pattern **/*.js 
+```
 
 ## Programmatic usage ##
 
@@ -74,18 +87,31 @@ Thus the parameters object looks like:
     {
         path: {string},
         showFiles: {boolean},
-        logLevel: {number}
+        logLevel: {number},
+        ignorePattern: {string}
     }
 
 #### Example ####
 
 ```
-    const folder2tree = require('folder2tree');
+    const directree = require('directree');
 
-    folder2tree({
+    directree({
         path: './',
         showFiles: true,
-        logLevel: 3
+        logLevel: 3,
+        ignorePattern: 'node_modules'
     })
 
 ``` 
+
+## Contributing
+
+You can contribute to this project: clone the repo, write your wonderful code and before pull-requesting please run:
+
+```
+    npm test
+    npm run lint
+```
+
+Only linted and tested requests will be accepted.
