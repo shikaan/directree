@@ -65,7 +65,7 @@ The default level is `3` (only errors), the deepest and most verbose level of lo
 
 ### Ignore pattern ###
 
-You can hide some results in the tree by using the `ignore-patttern` argument. 
+You can hide some results in the tree by using the `ignore-pattern` argument. 
 It runs `minimatch` under the hood, thus it takes a glob as argument.
 
 #### Example ####
