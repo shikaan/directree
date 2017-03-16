@@ -1,6 +1,6 @@
 {
   "name": "directree",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Creates tree representation of given folder(s)",
   "main": "index.js",
   "dependencies": {
