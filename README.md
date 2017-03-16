@@ -8,10 +8,6 @@
 Creates a tree representation of any directory. Handy if you want to add a tree 
 representation of your project to your documentation.
 
-## To-dos
-
-- Add capability to redirect output(print on file, print on console, return result as string);
-
 ## Installation ##
 
 Run 
@@ -27,6 +23,7 @@ It takes the following parameters:
 - `show-files`
 - `log-level`
 - `ignore-pattern`
+- `output`
 
 ### Path ###
 
@@ -82,6 +79,21 @@ It runs `minimatch` under the hood, thus it takes a glob as argument.
     directree --path . --ignore-pattern **/*.js 
 ```
 
+### Output ###
+
+If you mind, you can write your output on a file using the `output` parameters.
+
+_Please note: this is an async feature, so keep that in mind in case of programmatic usage!_
+
+#### Example ####
+
+```
+    directree --path . -f  -o ./tree.txt
+```
+```
+    directree --path . --output ./tree.txt
+```
+
 ## Programmatic usage ##
 
 You can use this utility in your Node.js apps too. You only need to provide the same parameters
@@ -93,7 +105,8 @@ Thus the parameters object looks like:
         path: {string},
         showFiles: {boolean},
         logLevel: {number},
-        ignorePattern: {string}
+        ignorePattern: {string},
+        output: {string}
     }
 
 #### Example ####
@@ -105,7 +118,8 @@ Thus the parameters object looks like:
         path: './',
         showFiles: true,
         logLevel: 3,
-        ignorePattern: 'node_modules'
+        ignorePattern: 'node_modules',
+        output: './tree.txt'
     })
 
 ``` 

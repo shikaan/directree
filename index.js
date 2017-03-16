@@ -4,6 +4,7 @@
     const { parseFolderStructure } = require('./src/service/tree-parser.service');
     const { drawTree } = require('./src/service/tree-drawer.service');
     const { setLogLevel } = require('./src/service/logging.service');
+    const { redirectOutput } = require('./src/service/redirect-output.service');
 
     module.exports = function (parameters) {
         /**
@@ -22,8 +23,8 @@
         const result = drawTree(tree);
 
         /**
-        *   Prints output to the console
+        *   Prints output
         */
-        console.log(result);
+        redirectOutput(result, parameters);
     };
 }());

@@ -5,7 +5,8 @@
 
     const { parameters } = require('./cli-parameters.service');
     const { drawTree } = require('../src/service/tree-drawer.service');
-    const { parseFolderStructure } = require('../src/service/tree-parser.service')
+    const { parseFolderStructure } = require('../src/service/tree-parser.service');
+    const { redirectOutput } = require('../src/service/redirect-output.service')
     const { setLogLevel } = require('../src/service/logging.service');
 
     /**
@@ -24,7 +25,7 @@
     let result = drawTree(tree);
 
     /**
-    *   Prints output to the console
+    *   Prints output
     */
-    console.log(result);
+    redirectOutput(result, parameters);
 }());
