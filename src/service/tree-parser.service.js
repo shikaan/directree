@@ -5,8 +5,8 @@
     const walkSync = require('klaw-sync');
     const path = require('path');
     const minimatch = require('minimatch');
-    const { Tree } = require('../model/tree.model');
-    const { Node } = require('../model/node.model');
+    const Tree = require('../model/tree.model');
+    const Node = require('../model/node.model');
     const { isEmptyString } = require('./utils.service');
     const logger = require('./logging.service');
 
