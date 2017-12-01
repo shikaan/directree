@@ -10,3 +10,8 @@ install: npm install
 script: npm run test-ci
 
 script: npm version patch
+
+deploy:
+  provider: npm
+  email: EMAIL
+  api_key: AUTH_TOKEN
