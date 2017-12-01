@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-    const { Tree } = require('../model/tree.model');
+    const Tree = require('../model/tree.model');
     const { isLastInList } = require('./utils.service');
     const logger = require('./logging.service')
 

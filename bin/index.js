@@ -17,12 +17,12 @@
     /**
     *   Creates a Tree from a path of a folder
     */
-    let tree = parseFolderStructure(parameters);
+    const tree = parseFolderStructure(parameters);
 
     /**
     *   Draws the tree
     */
-    let result = drawTree(tree);
+    const result = drawTree(tree);
 
     /**
     *   Prints output

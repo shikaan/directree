@@ -19,8 +19,8 @@
     "sinon": "^1.17.7"
   },
   "scripts": {
-    "test": "mocha 'src/**/*.spec.js'",
-    "test-html": "nyc --reporter=html mocha 'src/**/*.spec.js'",
+    "test": "mocha --opts .mocharc",
+    "test-html": "nyc --reporter=html mocha --opts .mocharc",
     "test-ci": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint src"
   },

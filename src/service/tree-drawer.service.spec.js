@@ -5,8 +5,8 @@
     const sinon = require('sinon');
     const service = require('./tree-drawer.service');
     const logger = require('./logging.service');
-    const { Tree } = require('../model/tree.model');
-    const { Node } = require('../model/node.model');
+    const Tree = require('../model/tree.model');
+    const Node = require('../model/node.model');
 
     describe('Service: TreeDrawer', () => {
         it('should be defined', () => {

@@ -1,31 +1,25 @@
-"use strict";
+module.exports = class Node {
+    constructor(label) {
+        this.label = label;
+        this.parent = null;
+        this.isLast = false;
+        this._children = [];
+    }
 
-(function () {
-    class Node {
-        constructor(label) {
-            this.label = label;
-            this.parent = null;
-            this.isLast = false;
-            this._children = [];
+    /**
+     * @param {Node} node 
+     */
+    addChild(node) {
+        if (node instanceof Node) {
+            node.parent = this;
+            this._children.push(node)
         }
-
-        /**
-         * @param {Node} node 
-         */
-        addChild(node) {
-            if (node instanceof Node) {
-                node.parent = this;
-                this._children.push(node)
-            }
-            else {
-                throw 'Invalid Node'
-            }
-        }
-
-        get children() {
-            return this._children;
+        else {
+            throw 'Invalid Node'
         }
     }
 
-    module.exports = { Node }
-}());
+    get children() {
+        return this._children;
+    }
+}
