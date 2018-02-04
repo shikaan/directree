@@ -47,6 +47,8 @@
      * @param {Tree} tree - The tree you want to draw
      */
     function drawTree(tree) {
+        logger.debug('Start drawing tree');
+
         if (tree instanceof Tree) {
             outputStream = `${tree.root.label}\n`
             _drawTreeFromRoot(tree.root, null);

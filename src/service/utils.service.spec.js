@@ -9,29 +9,29 @@
             expect(!!service).to.equal(true);
         });
 
-        describe('Method: isEmptyString', () => {
+        describe('Method: isNullOrEmptyString', () => {
             it('should be defined', () => {
-                expect(!!service.isEmptyString).to.equal(true);
+                expect(!!service.isNullOrEmptyString).to.equal(true);
             })
 
             it('should return true in case of null', () => {
-                expect(service.isEmptyString(null)).to.equal(true);
+                expect(service.isNullOrEmptyString(null)).to.equal(true);
             })
 
             it('should return true in case of \'\'', () => {
-                expect(service.isEmptyString('')).to.equal(true);
+                expect(service.isNullOrEmptyString('')).to.equal(true);
             })
 
             it('should return false in case of \'foo-bar\'', () => {
-                expect(service.isEmptyString('foo-bar')).to.equal(false);
+                expect(service.isNullOrEmptyString('foo-bar')).to.equal(false);
             })
 
             it('should return false in case of number sequence', () => {
-                expect(service.isEmptyString(1234)).to.equal(false);
+                expect(service.isNullOrEmptyString(1234)).to.equal(false);
             })
 
             it('should return false in case of object', () => {
-                expect(service.isEmptyString({ a: 1234 })).to.equal(false);
+                expect(service.isNullOrEmptyString({ a: 1234 })).to.equal(false);
             })
         });
 

@@ -1,27 +1,25 @@
-"use strict";
+'use strict';
 
-(function(){
-    const fs = require('fs');
-    const logger = require('./logging.service');
+const fs = require('fs');
+const logger = require('./logging.service');
 
-    function redirectOutput(result, parameters){
-        let output = parameters.output;
+function redirectOutput(result, { output }){
+    logger.debug('Redirecting output to', output);
 
-        if(output){
-            fs.writeFile(output, result, (error) => {
-                if(error){
-                    logger.error('Unable to write on: ', output);
-                    logger.debug(error);
-                    return;
-                }
+    if(output){
+        fs.writeFile(output, result, (error) => {
+            if(error){
+                logger.error('Unable to write on: ', output);
+                logger.debug(error);
+                return;
+            }
 
-                logger.info('Successfully written: ', output)
-            });
-        }
-        else{
-            return result
-        }
+            logger.info('Successfully written: ', output)
+        });
     }
+    else{
+        return process.stdout.write(result);
+    }
+}
 
-    module.exports = { redirectOutput }
-})();
+module.exports = { redirectOutput }

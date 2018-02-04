@@ -1,3 +1,4 @@
+'use strict';
 module.exports = class Node {
     constructor(label) {
         this.label = label;

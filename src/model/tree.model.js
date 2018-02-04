@@ -1,3 +1,5 @@
+'use strict';
+
 const Node = require('./node.model');
 
 module.exports = class Tree {

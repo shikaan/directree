@@ -10,7 +10,7 @@
 
     describe('Service: ReedirectOutput', () => {
         logger.setLogLevel(3);
-        let fsStub, errorStub, infoStub;
+        let errorStub, fsStub, infoStub;
 
         beforeEach(() => {
             fsStub = sinon.stub(fs, 'writeFile');
@@ -26,7 +26,7 @@
             fsStub.restore();
             infoStub.restore();
         })
-    
+
         it('should be defined', () => {
             expect(!!service).to.equal(true);
         });
@@ -36,10 +36,9 @@
                 expect(!!service.redirectOutput).to.equal(true);
             });
 
-            it('should return a string if no output is provided', () => {
-                let x = service.redirectOutput('asd', new Parameters());
-
-                expect(x).to.equal('asd');
+            it('should print a string on stdout if no output is provided', () => {
+                process.stdout.once('data', (output) => expect(output.toString('utf-8')).to.eq('foo-bar'))
+                service.redirectOutput('foo-bar', new Parameters());
             })
 
             it('should call fs.writeFile if output is provided', () => {
@@ -47,7 +46,7 @@
                 params.output = '.';
 
                 service.redirectOutput('asdf', params);
-                
+
                 fsStub.restore();
                 expect(fsStub.called).to.equal(true);
             })
@@ -56,7 +55,7 @@
                 let params = new Parameters();
                 params.output = '.';
 
-                fsStub.yields( new Error('error'));
+                fsStub.yields(new Error('error'));
 
                 service.redirectOutput('asdf', params);
 

@@ -14,6 +14,7 @@
     "coveralls": "^2.12.0",
     "eslint": "^3.17.1",
     "eslint-plugin-import": "^2.2.0",
+    "husky": "^0.14.3",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
     "sinon": "^1.17.7"
@@ -22,7 +23,10 @@
     "test": "mocha --opts .mocharc",
     "test-html": "nyc --reporter=html mocha --opts .mocharc",
     "test-ci": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "start": "node ./bin",
+    "prepush": "npm run lint:fix && npm run test"
   },
   "author": "Manuel Spagnolo <spagnolo.manu@gmail.com>",
   "license": "ISC",
