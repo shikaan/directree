@@ -13,13 +13,17 @@ representation of your project to your documentation.
 Run 
 
 ```
-    npm install directree -g
+npm install directree -g
 ```
 
 ## Usage ##
-It takes the following parameters:
 
-- `path`
+```
+directree [options] <path>
+```
+
+It takes the following options:
+
 - `show-files`
 - `log-level`
 - `ignore-pattern`
@@ -32,10 +36,7 @@ It's the path of the folder you want to show as a tree. It's required.
 #### Example ####
 
 ```
-    directree -p ./
-```
-```
-    directree --path ./
+    directree .
 ```
 
 ### Show Files ###
@@ -45,10 +46,10 @@ Add this flag if you want to show files in the tree.
 #### Example ####
 
 ```
-    directree --path ./ -f
+    directree -f .
 ```
 ```
-    directree --path ./ --show-files
+    directree --show-files .
 ```
 
 ### Logging level ###
@@ -59,10 +60,10 @@ The default level is `3` (only errors), the deepest and most verbose level of lo
 #### Example ####
 
 ```
-    directree --path ./ -f  -l 0
+    directree -l 2 .
 ```
 ```
-    directree --path ./ --log-level 2
+    directree --log-level 2 .
 ```
 
 ### Ignore pattern ###
@@ -73,10 +74,10 @@ It runs `minimatch` under the hood, thus it takes a glob as argument.
 #### Example ####
 
 ```
-    directree --path . -f  -i node_modules
+    directree -i node_modules/**/*.js .
 ```
 ```
-    directree --path . --ignore-pattern **/*.js 
+    directree --ignore-pattern node_modules/**/*.js .
 ```
 
 ### Output ###
@@ -88,10 +89,10 @@ _Please note: this is an async feature, so keep that in mind in case of programm
 #### Example ####
 
 ```
-    directree --path . -f  -o ./tree.txt
+    directree -f  -o ./tree.txt .
 ```
 ```
-    directree --path . --output ./tree.txt
+    directree --output ./tree.txt .
 ```
 
 ## Programmatic usage ##
@@ -126,11 +127,4 @@ Thus the parameters object looks like:
 
 ## Contributing
 
-You can contribute to this project: clone the repo, write your wonderful code and before pull-requesting please run:
-
-```
-    npm test
-    npm run lint
-```
-
-Only linted and tested requests will be accepted.
+Contributors are well welcomed! Please do not skip git hooks when you submit Pull Requests :D
