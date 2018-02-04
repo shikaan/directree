@@ -1,17 +1,13 @@
 language: node_js
-
 node_js:
-  - "6"
-
-sudo: false
-
-install: npm install
-
-script: npm run test-ci
-
-script: npm version patch
-
+  - "lts/*"
+before_deploy:
+  - npm --no-git-tag-version version $TRAVIS_TAG
 deploy:
   provider: npm
-  email: EMAIL
-  api_key: AUTH_TOKEN
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
+  skip_cleanup: true
+  tag: latest
+  on:
+    tags: true
